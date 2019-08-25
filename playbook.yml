@@ -1,0 +1,7 @@
+---
+- name: Provision Image Shepherd Cloud Base Centos7 to build
+  hosts: packer-dinivas-base
+  become: true
+  roles:
+    - role: viasite-ansible.zsh
+    - role: cloudalchemy.node-exporter
