@@ -1,0 +1,29 @@
+---
+dependency:
+  name: galaxy
+  options:
+    ignore-certs: True
+    ignore-errors: True
+    role-file: requirements.yml
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: packer-dinivas-base
+    image: centos:7
+    groups:
+      - consul_instances
+    privileged: True
+    command: '/sbin/init'
+    cap_add: ['SYS_ADMIN', 'SETPCAP']
+provisioner:
+  name: ansible
+  env:
+    OBJC_DISABLE_INITIALIZE_FORK_SAFETY: 'YES'
+  lint:
+    name: ansible-lint
+verifier:
+  name: goss
+  lint:
+    name: yamllint

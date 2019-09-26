@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: viasite-ansible.zsh
+    - role: cloudalchemy.node-exporter
+    - role: dinivas.consul
+      consul_node_role: client
+      consul_client_address: '0.0.0.0'
+      consul_encrypt_enable: false
