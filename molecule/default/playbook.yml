@@ -3,6 +3,7 @@
   hosts: all
   roles:
     - role: viasite-ansible.zsh
+      zsh_user: root
     - role: cloudalchemy.node-exporter
     - role: dinivas.consul
       consul_node_role: client
