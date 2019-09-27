@@ -26,9 +26,12 @@
     ],
     "user": "{{user `ssh_user` }}",
     "playbook_file": "./playbook.yml",
+    "galaxy_file": "requirements.yml",
+    "roles_path": "{{user `ansible_roles_path` }}",
     "extra_arguments": [
       "-e zsh_user={{user `ssh_user` }}"
     ],
+    "groups": ["consul_instances"],
     "host_alias": "{{user `instance_name`}}"
   }]
 }

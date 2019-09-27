@@ -3,3 +3,4 @@
 - src: viasite-ansible.zsh
 - src: cloudalchemy.node-exporter
 - src: dinivas.consul
+- src: dinivas.filebeat

@@ -1,0 +1,20 @@
+server:
+  logfile: "/var/log/unbound.log"
+  verbosity: 1
+  do-ip4: yes
+  do-ip6: no
+  do-udp: yes
+  do-tcp: yes
+  hide-identity: yes
+  hide-version: yes
+  harden-glue: yes
+  use-caps-for-id: yes
+
+  # Autorise Unbound à consulter un serveur local
+  do-not-query-localhost: no
+  # Consul ne supporte pas DNSSEC
+  domain-insecure: "{{ consul_domain }}"
+
+stub-zone:
+  name: "{{ consul_domain }}"
+  stub-addr: "127.0.0.1@8600"
