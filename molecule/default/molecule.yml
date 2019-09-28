@@ -19,6 +19,8 @@ platforms:
     cap_add: ['SYS_ADMIN', 'SETPCAP']
 provisioner:
   name: ansible
+  playbooks:
+    converge: ../../playbook.yml
   env:
     OBJC_DISABLE_INITIALIZE_FORK_SAFETY: 'YES'
   lint:

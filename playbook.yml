@@ -10,6 +10,7 @@
     unbound_configd_path: "/etc/unbound/conf.d"
     consul_domain: dinivas
   roles:
+    - role: geerlingguy.repo-epel
     - role: viasite-ansible.zsh
     - role: cloudalchemy.node-exporter
     - role: dinivas.filebeat
@@ -24,6 +25,12 @@
       consul_install_upgrade: true
 
   tasks:
+    - name: Install utilities package
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - jq
     - name: Copy node_exporter consul service definition
       template:
         src: "{{ playbook_dir }}/templates/node_exporter-service.json.j2"

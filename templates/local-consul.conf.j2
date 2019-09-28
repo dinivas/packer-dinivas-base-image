@@ -1,3 +1,4 @@
+{{ ansible_managed | comment }}
 server:
   logfile: "/var/log/unbound.log"
   verbosity: 1
@@ -10,9 +11,9 @@ server:
   harden-glue: yes
   use-caps-for-id: yes
 
-  # Autorise Unbound à consulter un serveur local
+  # Allow Unbound to check local DNS server
   do-not-query-localhost: no
-  # Consul ne supporte pas DNSSEC
+  # Consul does'nt support DNSSEC
   domain-insecure: "{{ consul_domain }}"
 
 stub-zone:
